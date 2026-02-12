@@ -5,7 +5,7 @@ import numpy as np
 file = open('test.csv', 'w' , newline = None)
 csvwriter = csv.writer(file, delimiter = ',')
 
-meta = ['time', 'concentration', 'particles03', 'particles05', 'particles10', 'particles25', 'particles50', 'particles100']
+meta = ['time', 'particles03', 'particles05', 'particles10', 'particles25', 'particles50', 'particles100']
 csvwriter.writerow(meta)
 
 for i in range(10):
@@ -61,7 +61,7 @@ pm25 = PM25_UART(uart, reset_pin)
 
 print("Found PM2.5 sensor, reading data...")
 i = 0
-def sense(x):
+x = 5
   while i < x:
     time.sleep(1)
 
