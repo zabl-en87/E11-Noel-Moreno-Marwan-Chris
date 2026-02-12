@@ -5,7 +5,7 @@ import numpy as np
 file = open('test.csv', 'w' , newline = None)
 csvwriter = csv.writer(file, delimiter = ',')
 
-meta = ['time', 'particles03', 'particles05', 'particles10', 'particles25', 'particles50', 'particles100']
+meta = ['time', 'concentration', 'particles03', 'particles05', 'particles10', 'particles25', 'particles50', 'particles100']
 csvwriter.writerow(meta)
 
 for i in range(10):
