@@ -8,10 +8,10 @@ csvwriter = csv.writer(file, delimiter = ',')
 meta = ['time', 'concentration', 'particles03', 'particles05', 'particles10', 'particles25', 'particles50', 'particles100']
 csvwriter.writerow(meta)
 
-for i in range(10):
-  now = time.time()
-  value = np.random.random()
-  csvwriter.writerow([now, value])
+#for i in range(10):
+ # now = time.time()
+  #value = np.random.random()
+  #csvwriter.writerow([now, value])
 
 
 # SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
@@ -94,7 +94,7 @@ while i < x:
     print("Particles > 10 um / 0.1L air:", aqdata["particles 100um"])
     print("---------------------------------------")
 
-    csvwriter.writerow([i, "PM 1.0: %d\tPM2.5: %d\tPM10: %d", aqdata["particles 03um"], aqdata["particles 05um"], aqdata["particles 10um"], aqdata["particles 25um"], aqdata["particles 50um"], aqdata["particles 100um"]])
+    csvwriter.writerow([i, "PM 1.0: \tPM2.5: \tPM10: ", aqdata["particles 03um"], aqdata["particles 05um"], aqdata["particles 10um"], aqdata["particles 25um"], aqdata["particles 50um"], aqdata["particles 100um"]])
 
 
     
