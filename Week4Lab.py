@@ -62,7 +62,7 @@ pm25 = PM25_UART(uart, reset_pin)
 print("Found PM2.5 sensor, reading data...")
 i = 0
 x = 5
-  while i < x:
+while i < x:
     time.sleep(1)
 
     try:
