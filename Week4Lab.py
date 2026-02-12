@@ -94,8 +94,7 @@ while i < x:
     print("Particles > 10 um / 0.1L air:", aqdata["particles 100um"])
     print("---------------------------------------")
 
-    csvwriter.writerow([i, ("PM 1.0: %d\tPM2.5: %d\tPM10: %d"
-        % (aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"])), aqdata["particles 03um"], aqdata["particles 05um"], aqdata["particles 10um"], aqdata["particles 25um"], aqdata["particles 50um"], aqdata["particles 100um"]])
+    csvwriter.writerow([i, aqdata["pm25 standard"], aqdata["particles 03um"], aqdata["particles 05um"], aqdata["particles 10um"], aqdata["particles 25um"], aqdata["particles 50um"], aqdata["particles 100um"]])
 
 
     
