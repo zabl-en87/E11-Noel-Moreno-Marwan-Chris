@@ -65,7 +65,7 @@ while i < runtime:
         print("Unable to read from sensor, retrying...")
         continue
 
-      current_time = datetime.datetime.now()
+    current_time = datetime.datetime.now()
     #print(current_time.strftime("%H:%M:%S"))
     a = current_time.strftime("%H:%M:%S")
     b = bme680.temperature
