@@ -1,8 +1,16 @@
 import csv
 import time
 import numpy as np
+import sys
 
-file = open('test.csv', 'w' , newline = None)
+arguments = sys.argv
+print(arguments)
+
+data_path = 'data/' + arguments[1]
+runtime = int(arguments[2])
+
+
+file = open(data_path, 'w' , newline = None)
 csvwriter = csv.writer(file, delimiter = ',')
 
 meta = ['time', 'concentration', 'particles03', 'particles05', 'particles10', 'particles25', 'particles50', 'particles100']
@@ -62,7 +70,7 @@ pm25 = PM25_UART(uart, reset_pin)
 print("Found PM2.5 sensor, reading data...")
 i = 0
 x = 5
-while i < x:
+while i < runtime:
     time.sleep(1)
 
     try:
