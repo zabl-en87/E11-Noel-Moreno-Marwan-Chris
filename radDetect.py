@@ -71,7 +71,7 @@ if __name__ == '__main__':
 
                 
                 spectra.append(spec_data)
-                spamwriter.writerow(spec_data)
+                spamwriter.writerow(spectrum[1:])
                 read_times.append(elapsed)
                 reads += 1
 
