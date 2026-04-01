@@ -1,7 +1,7 @@
 import sys
 sys.path.append('/home/pi/cape_mca') #capemca.py directory
 from capemca import CapeMCA
-
+import *
 
 
 
