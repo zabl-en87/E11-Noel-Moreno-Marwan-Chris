@@ -22,9 +22,9 @@ if __name__ == '__main__':
 
     duration = float(sys.argv[1]) if len(sys.argv) > 1 else 60.0
     window = float(sys.argv[2]) if len(sys.argv) > 2 else 15.0
-    
+    name = sys.argv[3]
 
-    spectra = sys.argv[3] #replace with [] for spectra
+    spectra = [] #originally called spectra
     read_times = []
 
     with CapeMCA() as mca:
@@ -104,6 +104,6 @@ if __name__ == '__main__':
         ax2.set_title(f"Summed spectrum ({len(spectra)} reads, {window}s windows)")
 
         plt.tight_layout()
-        plt.savefig("spectra.png", dpi=150)
+        plt.savefig(name, dpi=150)
         print("Plot saved to spectra.png")
         plt.show()
