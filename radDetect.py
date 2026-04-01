@@ -6,7 +6,7 @@ import csv
 dataName = sys.argv[4]
 
 with open(dataName, 'w', newline = '') as csvfile:
-        spamwriter = csv.writer(csvfile, delimiter=' ')
+spamwriter = csv.writer(csvfile, delimiter=',')
         
 
 
@@ -71,7 +71,7 @@ if __name__ == '__main__':
 
                 
                 spectra.append(spec_data)
-                spamwriter.writerow(spectrum[1:])
+                spamwriter.writerow({read_end - read_start:.2f}s, {status.total_count:g})
                 read_times.append(elapsed)
                 reads += 1
 
