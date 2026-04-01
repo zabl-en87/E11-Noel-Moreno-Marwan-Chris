@@ -85,34 +85,34 @@ with open(dataName, 'w', newline = '') as csvfile:
 
     
 
-    if spectra:
-        waterfall = np.array(spectra)
+            if spectra:
+                waterfall = np.array(spectra)
 
-        fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 8))
+                fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 8))
 
-        # Top: waterfall heatmap — channels vs read number
-        im = ax1.imshow(waterfall, aspect='auto', origin='lower',
-                        extent=[1, SPECTRUM_CHANNELS - 1, 0.5, len(spectra) + 0.5],
-                        interpolation='nearest', cmap='hot')
-        ax1.set_xlabel("Channel")
-        ax1.set_ylabel("Read #")
-        ax1.set_title(f"Spectrum waterfall ({window}s window)")
-        # Label y-axis ticks with timestamps
-        yticks = list(range(1, len(spectra) + 1))
-        ylabels = [f"{reads} ({t:.0f}s)" for reads, t in zip(yticks, read_times)]
-        ax1.set_yticks(yticks)
-        ax1.set_yticklabels(ylabels, fontsize=7)
-        fig.colorbar(im, ax=ax1, label="Counts")
+                # Top: waterfall heatmap — channels vs read number
+                im = ax1.imshow(waterfall, aspect='auto', origin='lower',
+                                extent=[1, SPECTRUM_CHANNELS - 1, 0.5, len(spectra) + 0.5],
+                                interpolation='nearest', cmap='hot')
+                ax1.set_xlabel("Channel")
+                ax1.set_ylabel("Read #")
+                ax1.set_title(f"Spectrum waterfall ({window}s window)")
+                # Label y-axis ticks with timestamps
+                yticks = list(range(1, len(spectra) + 1))
+                ylabels = [f"{reads} ({t:.0f}s)" for reads, t in zip(yticks, read_times)]
+                ax1.set_yticks(yticks)
+                ax1.set_yticklabels(ylabels, fontsize=7)
+                fig.colorbar(im, ax=ax1, label="Counts")
 
-        # Bottom: summed spectrum (log scale)
-        summed = waterfall.sum(axis=0)
-        ax2.plot(range(1, SPECTRUM_CHANNELS), summed, 'k-', linewidth=0.8)
-        ax2.set_yscale('log')
-        ax2.set_xlabel("Channel")
-        ax2.set_ylabel("Counts (summed)")
-        ax2.set_title(f"Summed spectrum ({len(spectra)} reads, {window}s windows)")
+                # Bottom: summed spectrum (log scale)
+                summed = waterfall.sum(axis=0)
+                ax2.plot(range(1, SPECTRUM_CHANNELS), summed, 'k-', linewidth=0.8)
+                ax2.set_yscale('log')
+                ax2.set_xlabel("Channel")
+                ax2.set_ylabel("Counts (summed)")
+                ax2.set_title(f"Summed spectrum ({len(spectra)} reads, {window}s windows)")
 
-        plt.tight_layout()
-        plt.savefig(name, dpi=150)
-        print("Plot saved to spectra.png")
-        plt.show()
+                plt.tight_layout()
+                plt.savefig(name, dpi=150)
+                print("Plot saved to spectra.png")
+                plt.show()
