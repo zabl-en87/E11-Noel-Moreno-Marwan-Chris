@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
     print("Device closed, exiting.")
 
-    with open(dataName, 'w', newline = ' ') as csvfile:
+    with open(dataName, 'w', newline = '') as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=' ')
         spamwriter.writerow(spectra)
 
