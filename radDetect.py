@@ -6,7 +6,7 @@ import csv
 dataName = sys.argv[4]
 
 with open(dataName, 'w', newline = '') as csvfile:
-        spamwriter = csv.writer(csvfile, delimiter=',')
+        spamwriter = csv.writer(file, delimiter=',')
         
 
 
