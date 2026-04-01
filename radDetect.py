@@ -1,7 +1,7 @@
 import sys
 sys.path.append('/home/pi/cape_mca') #capemca.py directory
 from capemca import *
-
+import csv
 
 
 
@@ -23,6 +23,7 @@ if __name__ == '__main__':
     duration = float(sys.argv[1]) if len(sys.argv) > 1 else 60.0
     window = float(sys.argv[2]) if len(sys.argv) > 2 else 15.0
     name = sys.argv[3]
+    dataName = sys.argv[4]
 
     spectra = [] #originally called spectra
     read_times = []
@@ -75,6 +76,10 @@ if __name__ == '__main__':
             print(f"\nError after {reads} reads: {e}")
 
     print("Device closed, exiting.")
+
+    with open(dataName, 'w', newline = ' ') as csvfile:
+        spamwriter = csv.writer(csvfile, delimiter=' ')
+        spamwriter.writerow(spectra)
 
     if spectra:
         waterfall = np.array(spectra)
