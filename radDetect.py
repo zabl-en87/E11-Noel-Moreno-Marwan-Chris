@@ -22,8 +22,9 @@ if __name__ == '__main__':
 
     duration = float(sys.argv[1]) if len(sys.argv) > 1 else 60.0
     window = float(sys.argv[2]) if len(sys.argv) > 2 else 15.0
+    
 
-    spectra = []
+    spectra = sys.argv[3] #replace with [] for spectra
     read_times = []
 
     with CapeMCA() as mca:
