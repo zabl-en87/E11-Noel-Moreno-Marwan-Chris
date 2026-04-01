@@ -69,7 +69,7 @@ if __name__ == '__main__':
                           if spectrum[ch] > 0]
                 print(f"         channels: {active}")
 
-                spamwriter.writerow(spec_data)
+                #spamwriter.writerow(spec_data)
                 spectra.append(spec_data)
                 read_times.append(elapsed)
                 reads += 1
