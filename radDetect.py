@@ -3,7 +3,9 @@ sys.path.append('/home/pi/cape_mca') #capemca.py directory
 from capemca import *
 import csv
 
-
+with open(dataName, 'w', newline = '') as csvfile:
+        spamwriter = csv.writer(csvfile, delimiter=' ')
+        
 
 
 
@@ -65,6 +67,7 @@ if __name__ == '__main__':
                           if spectrum[ch] > 0]
                 print(f"         channels: {active}")
 
+                spamwriter.writerow(spec_data)
                 spectra.append(spec_data)
                 read_times.append(elapsed)
                 reads += 1
@@ -77,9 +80,7 @@ if __name__ == '__main__':
 
     print("Device closed, exiting.")
 
-    with open(dataName, 'w', newline = '') as csvfile:
-        spamwriter = csv.writer(csvfile, delimiter=' ')
-        spamwriter.writerow(spectra)
+    
 
     if spectra:
         waterfall = np.array(spectra)
