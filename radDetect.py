@@ -2,7 +2,6 @@ import sys
 sys.path.append('/home/pi/cape_mca') #capemca.py directory
 from capemca import *
 import csv
-import sys
 import time
 import numpy as np
 import matplotlib.pyplot as plt
@@ -11,38 +10,33 @@ dataName = sys.argv[4]
 
 file = open(dataName, 'w', newline = '')
 spamwriter = csv.writer(file, delimiter=',')
+
+devices = find_all_mcas()
+print(f"Found {len(devices)} MCA device(s)")
         
+if not devices:
+        sys.exit(1)
 
-
-
-            
-
-            devices = find_all_mcas()
-            print(f"Found {len(devices)} MCA device(s)")
-        
-            if not devices:
-                sys.exit(1)
-
-            duration = float(sys.argv[1]) if len(sys.argv) > 1 else 60.0
-            window = float(sys.argv[2]) if len(sys.argv) > 2 else 15.0
-            name = sys.argv[3]
+duration = float(sys.argv[1]) if len(sys.argv) > 1 else 60.0
+window = float(sys.argv[2]) if len(sys.argv) > 2 else 15.0
+name = sys.argv[3]
     
 
-            spectra = [] #originally called spectra
-            read_times = []
+spectra = [] #originally called spectra
+read_times = []
 
-            with CapeMCA() as mca:
-                try:
-                    start = time.time()
-                    reads = 0
-                    next_read = start
+with CapeMCA() as mca:
+        try:
+                start = time.time()
+                reads = 0
+                next_read = start
         
-                    while time.time() - start < duration:
+                while time.time() - start < duration:
                         # Wait until the next window boundary
                         now = time.time()
                         if now < next_read:
-                            time.sleep(next_read - now)
-        
+                                time.sleep(next_read - now)
+
                         read_start = time.time()
                         status = mca.read_status()
                         spectrum = mca.read_spectrum()
@@ -82,6 +76,7 @@ spamwriter = csv.writer(file, delimiter=',')
 
             print("Device closed, exiting.")
 
-    
+
+file.close()
 
 
