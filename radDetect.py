@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 dataName = sys.argv[4]
 
-file = open(dataName, 'w', newline = '') as csvfile:
+file = open(dataName, 'w', newline = '')
 spamwriter = csv.writer(file, delimiter=',')
         
 
