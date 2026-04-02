@@ -64,7 +64,7 @@ with CapeMCA() as mca:
 
                 
                         spectra.append(spec_data)
-                        spamwriter.writerow([read_end, status.total_count])
+                        spamwriter.writerow([read_end-start, status.total_count])
                         read_times.append(elapsed)
                         reads += 1
 
