@@ -68,8 +68,8 @@ with CapeMCA() as mca:
                         read_times.append(elapsed)
                         reads += 1
 
-                    print(f"\nCompleted {reads} reads in {time.time() - start:.2f}s "
-                          f"(window={window}s)")
+                        print(f"\nCompleted {reads} reads in {time.time() - start:.2f}s "
+                              f"(window={window}s)")
 
                 except Exception as e:
                     print(f"\nError after {reads} reads: {e}")
