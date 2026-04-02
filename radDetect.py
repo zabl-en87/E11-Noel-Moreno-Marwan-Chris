@@ -71,7 +71,7 @@ with open(dataName, 'w', newline = '') as csvfile:
 
                 
                         spectra.append(spec_data)
-                        spamwriter.writerow([read_end - read_start, status.total_count])
+                        spamwriter.writerow([read_end - read_start, spec_total])
                         read_times.append(elapsed)
                         reads += 1
 
