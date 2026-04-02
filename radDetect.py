@@ -71,10 +71,10 @@ with CapeMCA() as mca:
                         print(f"\nCompleted {reads} reads in {time.time() - start:.2f}s "
                               f"(window={window}s)")
 
-                except Exception as e:
-                    print(f"\nError after {reads} reads: {e}")
+        except Exception as e:
+                print(f"\nError after {reads} reads: {e}")
 
-            print("Device closed, exiting.")
+        print("Device closed, exiting.")
 
 
 file.close()
